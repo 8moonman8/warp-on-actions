@@ -1,0 +1,23 @@
+name: WARP Generator
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Make warp.sh executable
+        run: chmod +x warp.sh
+
+      - name: Run script
+        run: ./warp.sh
+
+      - name: Upload WireGuard config
+        uses: actions/upload-artifact@v4
+        with:
+          name: wireguard-warp
+          path: output/wireguard-warp.conf
