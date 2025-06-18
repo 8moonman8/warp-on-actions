@@ -1,5 +1,4 @@
 #!/bin/bash
-#!/bin/bash
 
 # Установка необходимых компонентов
 sudo apt update -y
