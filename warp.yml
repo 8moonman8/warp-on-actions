@@ -6,11 +6,12 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Run WARP Script
+      - name: Run WARP script
         run: |
           chmod +x warp.sh
           ./warp.sh
