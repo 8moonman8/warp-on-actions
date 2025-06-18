@@ -1,11 +1,13 @@
 #!/bin/bash
+#!/bin/bash
 
 # Установка необходимых компонентов
 sudo apt update -y
 sudo apt install -y curl wireguard-tools
 
-# Получение Warp+ аккаунта через wgcf
-curl -fsSL https://github.com/ViRb3/wgcf/releases/download/v2.2.16/wgcf_2.2.16_linux_amd64.tar.gz | tar xz
+# Скачать последнюю рабочую версию wgcf с официального GitHub
+curl -Lo wgcf.tar.gz https://github.com/ViRb3/wgcf/releases/latest/download/wgcf_amd64_linux.tar.gz
+tar -xzf wgcf.tar.gz
 chmod +x wgcf
 sudo mv wgcf /usr/local/bin/
 
