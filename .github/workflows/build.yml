@@ -7,6 +7,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Run original WARP script
+      - name: Run WARP script from alternative repo
         run: |
-          curl -sSL https://raw.githubusercontent.com/fscarmen/warp-on-actions/main/warp.sh | bash
+          curl -sSL https://raw.githubusercontent.com/its-pointless/warp-on-actions/main/warp.sh | bash
+
