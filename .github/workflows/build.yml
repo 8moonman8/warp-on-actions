@@ -1,4 +1,4 @@
-name: WARP-On-Actions
+name: WARP Generator
 
 on:
   workflow_dispatch:
@@ -6,8 +6,19 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Run WARP script from alternative repo
-        run: |
-          curl -sSL https://raw.githubusercontent.com/its-pointless/warp-on-actions/main/warp.sh | bash
+      - uses: actions/checkout@v4
+
+      - name: Make warp.sh executable
+        run: chmod +x warp.sh
+
+      - name: Run script
+        run: ./warp.sh
+
+      - name: Upload WireGuard config
+        uses: actions/upload-artifact@v4
+        with:
+          name: wireguard-warp
+          path: output/wireguard-warp.conf
 
